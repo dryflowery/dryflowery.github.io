@@ -13,6 +13,7 @@ use_math: true
 1. mid = (low + high) / 2
 2. mid가 key보다 작은 경우, low = mid
 3. mid가 key보다 큰 경우, high = mid
+
 mid값이 key와 같아질 때까지 반복한다.
 >
 
