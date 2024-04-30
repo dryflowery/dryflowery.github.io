@@ -130,4 +130,4 @@ void nCr(int depth, int last) {
 ---
 
 ## **트리의 지름**
-[트리의 지름](https://www.acmicpc.net/problem/1167)
+[트리의 지름](https://dryflowery.github.io/posts/boj-1167/)
