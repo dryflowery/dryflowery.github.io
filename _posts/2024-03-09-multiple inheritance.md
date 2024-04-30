@@ -224,10 +224,10 @@ class C implements A, B {
 	public void method() {
 		System.out.println("C");
 	}
-    
-    @Override // 2
-    public void method() {
-		B.super.method();
+
+  @Override // 2
+  public void method() {
+    B.super.method();
 	}
     // 자바 8부터 지원하는 문법으로 interface.super.method() 형식이다.
     // method()는 호출하고자 하는 메소드를, interface는 method()가 포함된 인터페이스를 의미한다.
