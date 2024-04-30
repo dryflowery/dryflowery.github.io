@@ -103,7 +103,7 @@ interface A {
 }
 
 
-interface B extends A{
+interface B extends A {
 	public default void method() {
 		System.out.println("B");
 	}
@@ -138,7 +138,7 @@ interface A {
 }
 
 
-interface B extends A{
+interface B extends A {
 	public default void method() {
 		System.out.println("B");
 	}
