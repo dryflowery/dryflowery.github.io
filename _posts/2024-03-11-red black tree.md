@@ -1,5 +1,5 @@
 ---
-title: 레드-블랙 트리(작성중)
+title: 레드-블랙 트리(추가 예정)
 date: 2024-03-11 23:30:00 +09:00
 categories: [Data Structure]
 use_math: true
