@@ -203,7 +203,6 @@ exclude:
   - "*.gemspec"
   - docs
   - tools
-  - README.md
   - LICENSE
   - rollup.config.js
   - package*.json
