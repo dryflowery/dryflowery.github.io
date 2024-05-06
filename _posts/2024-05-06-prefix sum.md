@@ -112,7 +112,7 @@ $sum[x][y] = sum[x - 1][y] + sum[x][y - 1] - sum[x - 1][y - 1] + arr[x][y]$ $(1 
 
 ---
 
-2차원 배열의 arr[x1][y1] ~ arr[x2][y2] ($x1 \leq x2, y1 \leq y2$) 까지의 구간 합 pSum는 아래와 같이 정의할 수 있다.
+2차원 배열의 $arr[x_1][y_1] ~ arr[x_2][y_2]$ $(x1 \leq x_2, y1 \leq y_2)$ 까지의 구간 합 pSum는 아래와 같이 정의할 수 있다.
 
 $pSum = \displaystyle\sum_{i=x_1}^{x_2}\displaystyle\sum_{j=y_1}^{y_2} arr[i][j]$
 
