@@ -94,7 +94,7 @@ void nPr(int depth) {
         visited[i] = false;
     }
 }
-}
+
 ```
 
 ---

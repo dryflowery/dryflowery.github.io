@@ -83,7 +83,7 @@ int N, M, ans;
 vector<int> v;
 
 
-void Print() {
+void Output() {
     cout << ans;
 }
 
@@ -101,6 +101,7 @@ bool Possible(int mid) {
             cur_max = cur_min = v[i];
         }
     }
+    
     if(cur_max - cur_min <= mid) {
         cnt++;
     }
@@ -149,7 +150,7 @@ int main() {
 
     Input();
     Solve();
-    Print();
+    Output();
 }
 ```
 
