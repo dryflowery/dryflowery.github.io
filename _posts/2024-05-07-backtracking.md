@@ -43,14 +43,97 @@ use_math: true
 ---
 
 ## **문제**
-[9663번: N-Queen](https://www.acmicpc.net/problem/9663)은 가장 유명한 백트래킹 문제이다. 
+[9663번: N-Queen](https://www.acmicpc.net/problem/9663)은 가장 유명한 백트래킹 문제다. N * N 크기의 체스판에 퀸 N개를 서로 공격할 수 없게 놓는 문제이다.
 
+---
 
+### **아이디어**
+N의 범위가 $1 \leq N \leq 14 $이므로 브루트 포스로 풀면 경우의 수는 <sub>196</sub>$C$<sub>14</sub> = 880530516383349192480개이다. 백트래킹을 사용해서 적당히 pruning해주자.
 
+---
 
+퀸이 서로 공격할 수 있는 경우는 총 3가지다.
 
+1. 서로 다른 퀸이 같은 행에 존재하는 경우
+2. 서로 다른 퀸이 같은 열에 존재하는 경우
+3. 서로 다른 퀸이 같은 대각선상에 존재하는 경우
+
+$col[r]$이라는 변수를 정의하자. $col[r] = c$는 r행의 퀸이 c열에 존재한다는 뜻이다. col 변수를 사용해서 각 행마다 하나의 퀸만 놓으면 promising여부를 판단할 때 열과 대각선만 체크해주면 된다. 
+
+같은 상태(같은 단계의 dfs)에서는 퀸의 열만 바꿔서 배치하고, 다음 행을 매개변수로 넘겨주면서 백트래킹을 진행한다.
+
+col 변수를 사용해서 열, 대각선만 체크하는 아이디어만 알면 구현 난이도는 어렵지 않다.
+
+---
 
 ### **코드**
 
 ```cpp
+#include <bits/stdc++.h>
+#define FastIO ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+using namespace std;
+
+int N ,ans;
+int col[15];
+
+
+void Output() {
+    cout << ans;
+}
+
+
+bool Promising(int row) {
+    // 열 체크
+    for(int i = 0; i < row; i++) {
+        if(col[i] == col[row]) {
+            return false;
+        }
+    }
+
+    // 대각선 체크
+    for(int i = 0; i < row; i++) {
+        if(abs(i - row) == abs(col[i] - col[row])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+void Dfs(int row) {
+    // 모든 행에 퀸을 놓는데 성공하면 Answer++
+    if(row == N) {
+        ans++;
+        return;
+    }
+
+    // 같은 상태(같은 단계의 dfs)에서는 해당 행에 존재하는 퀸의 열만 바꿔서 배치
+    for(int i = 0; i < N; i++) {
+        col[row] = i;
+
+        if(Promising(row)) {
+            Dfs(row + 1);
+        }
+    }
+}
+
+
+void Solve() {
+    Dfs(0);
+}
+
+
+void Input() {
+    cin >> N;
+}
+
+
+int main() {
+    FastIO;
+
+    Input();
+    Solve();
+    Output();
+}
 ```
